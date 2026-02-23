@@ -1,0 +1,29 @@
+# Node
+node_modules/
+dist/
+.angular/
+
+# Java / Maven
+target/
+*.class
+*.jar
+!**/wrapper/*.jar
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker volumes
+db_data/
+
+# Logs
+*.log

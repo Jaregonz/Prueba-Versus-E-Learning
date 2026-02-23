@@ -1,0 +1,6 @@
+server:
+  port: 8081
+
+services:
+  course-service:
+    url: http://localhost:8080/api/courses
