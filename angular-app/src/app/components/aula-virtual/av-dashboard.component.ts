@@ -185,6 +185,9 @@ import { CourseService, Course } from '../../services/course.service';
       margin-bottom: 2rem;
     }
     .course-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
       background: rgba(255,255,255,0.95);
       border-radius: 12px;
       overflow: hidden;
@@ -209,6 +212,7 @@ import { CourseService, Course } from '../../services/course.service';
     .card-category { font-size: 0.75rem; font-weight: 600; opacity: 0.9; }
     .card-body {
       padding: 1rem 1.2rem;
+      flex: 1 1 auto;
     }
     .card-body h3 {
       font-size: 0.92rem;
@@ -246,6 +250,8 @@ import { CourseService, Course } from '../../services/course.service';
       color: #aaa;
     }
     .card-footer {
+      display: flex;
+      align-items: center;
       padding: 0.8rem 1.2rem;
       border-top: 1px solid #f5f5f5;
     }
@@ -261,6 +267,10 @@ import { CourseService, Course } from '../../services/course.service';
     }
     .btn-access:hover { color: #1b5e20; }
     .btn-access span { font-size: 16px; }
+
+    .btn-like {
+      margin-left: auto;
+    }
 
     /* Loading */
     .loading {
