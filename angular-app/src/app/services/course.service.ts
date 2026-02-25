@@ -9,6 +9,7 @@ export interface Course {
     description: string;
     category: string;
     status: string;
+    difficultyLevel: string;
     lastModified: string;
     lastModifiedUser: string;
 }
@@ -29,6 +30,12 @@ export class CourseService {
                 description: c.description,
                 category: c.category || 'Ingreso',
                 status: c.status || 'Activo',
+                /** 
+                 * Mapeo de la propiedad difficultyLevel:
+                 * - Coge 'difficulty_level' si viene del backend.
+                 * - Si falta, asigna 'Principiante' como valor por defecto, para evitar problemas de datos faltantes.
+                */
+                difficultyLevel: c.difficulty_level  || 'Principiante',
                 lastModified: c.last_modified || c.lastModified || new Date().toISOString(),
                 lastModifiedUser: c.last_modified_user || c.lastModifiedUser || 'admin'
             }))),
@@ -41,13 +48,13 @@ export class CourseService {
 
     private getMockCourses(): Course[] {
         return [
-            { id: 1, title: 'Curso Knowmad Mood QA', description: 'Curso de Quality Assurance.', category: 'Categoría Curso QA', status: 'Activo', lastModified: '28 ENE 2026 - 10:34', lastModifiedUser: 'jcampuzano' },
-            { id: 2, title: 'Curso de Ingreso a Guardia Civil ...', description: 'Preparación oposiciones GC.', category: 'Ingreso', status: 'Activo', lastModified: '28 ENE 2026 - 03:22', lastModifiedUser: 'mdoloresalados' },
-            { id: 3, title: 'Curso SLP Ingles Cambridge B2 ...', description: 'Cambridge B2 nivel SLP.', category: 'Ingreso', status: 'Activo', lastModified: '02 FEB 2026 - 02:25', lastModifiedUser: 'mdoloresalados' },
-            { id: 4, title: 'Ascenso Guardia Civil', description: 'Preparación ascenso GC.', category: 'Sargento', status: 'Activo', lastModified: '11 FEB 2026 - 11:50', lastModifiedUser: 'luca_borgato' },
-            { id: 5, title: 'Curso maestro ascenso cabo', description: 'Ascenso a cabo.', category: 'CABO', status: 'Activo', lastModified: '11 FEB 2026 - 12:24', lastModifiedUser: 'lucia_alfonso' },
-            { id: 6, title: 'Ingreso GC', description: 'Ingreso Guardia Civil.', category: 'Ingreso', status: 'Activo', lastModified: '13 FEB 2026 - 02:22', lastModifiedUser: 'davinia_garcia' },
-            { id: 7, title: 'test', description: 'Curso de prueba.', category: 'Ingreso', status: 'Activo', lastModified: '13 FEB 2026 - 02:50', lastModifiedUser: 'dvazquez' }
+            { id: 1, title: 'Curso Knowmad Mood QA', description: 'Curso de Quality Assurance.', category: 'Categoría Curso QA', status: 'Activo', difficultyLevel: 'Principiante', lastModified: '28 ENE 2026 - 10:34', lastModifiedUser: 'jcampuzano' },
+            { id: 2, title: 'Curso de Ingreso a Guardia Civil ...', description: 'Preparación oposiciones GC.', category: 'Ingreso', status: 'Activo', difficultyLevel: 'Intermedio', lastModified: '28 ENE 2026 - 03:22', lastModifiedUser: 'mdoloresalados' },
+            { id: 3, title: 'Curso SLP Ingles Cambridge B2 ...', description: 'Cambridge B2 nivel SLP.', category: 'Ingreso', status: 'Activo', difficultyLevel: 'Avanzado', lastModified: '02 FEB 2026 - 02:25', lastModifiedUser: 'mdoloresalados' },
+            { id: 4, title: 'Ascenso Guardia Civil', description: 'Preparación ascenso GC.', category: 'Sargento', status: 'Activo', difficultyLevel: 'Intermedio', lastModified: '11 FEB 2026 - 11:50', lastModifiedUser: 'luca_borgato' },
+            { id: 5, title: 'Curso maestro ascenso cabo', description: 'Ascenso a cabo.', category: 'CABO', status: 'Activo', difficultyLevel: 'Avanzado', lastModified: '11 FEB 2026 - 12:24', lastModifiedUser: 'lucia_alfonso' },
+            { id: 6, title: 'Ingreso GC', description: 'Ingreso Guardia Civil.', category: 'Ingreso', status: 'Activo', difficultyLevel: 'Principiante', lastModified: '13 FEB 2026 - 02:22', lastModifiedUser: 'davinia_garcia' },
+            { id: 7, title: 'test', description: 'Curso de prueba.', category: 'Ingreso', status: 'Activo', difficultyLevel: 'Intermedio', lastModified: '13 FEB 2026 - 02:50', lastModifiedUser: 'dvazquez' }
         ];
     }
 }

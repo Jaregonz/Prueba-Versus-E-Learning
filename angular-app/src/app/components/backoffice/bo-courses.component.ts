@@ -11,6 +11,11 @@ interface ColumnDef {
 
 type SortDirection = 'asc' | 'desc' | 'none';
 
+/**
+ * Nueva propiedad 'difficultyLevel' añadida a la interfaz Course para reflejar el nuevo campo en la base de datos.
+ * Se obtiene de CourseService y se muestra en la tabla con su propia columna.  
+ */
+
 @Component({
   selector: 'app-bo-courses',
   standalone: true,
@@ -113,6 +118,14 @@ type SortDirection = 'asc' | 'desc' | 'none';
                     </div>
                   </th>
                 }
+                @if (isColumnVisible('difficultyLevel')) {
+                  <th>
+                    <div class="th-content" (click)="toggleSort('difficultyLevel')">
+                      Nivel de Dificultad
+                      <span class="material-icons-outlined sort-icon">{{ getSortIcon('difficultyLevel') }}</span>
+                    </div>
+                  </th>
+                }
                 @if (isColumnVisible('lastModified')) {
                   <th>
                     <div class="th-content" (click)="toggleSort('lastModified')">
@@ -150,6 +163,13 @@ type SortDirection = 'asc' | 'desc' | 'none';
                       <span class="badge-status" [class.active]="course.status === 'Activo'" [class.inactive-status]="course.status !== 'Activo'">
                         <span class="material-icons-outlined status-icon">{{ course.status === 'Activo' ? 'check_circle' : 'cancel' }}</span>
                         {{ course.status }}
+                      </span>
+                    </td>
+                  }
+                 @if (isColumnVisible('difficultyLevel')) {
+                    <td>
+                      <span class="badge-category badge-default">
+                        {{ course.difficultyLevel }}
                       </span>
                     </td>
                   }
@@ -518,6 +538,7 @@ export class BoCoursesComponent implements OnInit {
     { key: 'title', label: 'Título', sortable: true, filterable: true },
     { key: 'category', label: 'Categoría', sortable: true, filterable: false },
     { key: 'status', label: 'Estado', sortable: true, filterable: true },
+    { key: 'difficultyLevel', label: 'Nivel de Dificultad', sortable: true, filterable: false },
     { key: 'lastModified', label: 'Última mod.', sortable: true, filterable: false },
     { key: 'lastModifiedUser', label: 'Usuario últ.mod.', sortable: false, filterable: true }
   ];
@@ -527,6 +548,7 @@ export class BoCoursesComponent implements OnInit {
     title: true,
     category: true,
     status: true,
+    difficultyLevel: true,
     lastModified: true,
     lastModifiedUser: true
   });
