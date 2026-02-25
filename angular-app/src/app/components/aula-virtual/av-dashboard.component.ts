@@ -77,6 +77,7 @@ import { CourseService, Course } from '../../services/course.service';
               <div class="card-body">
                 <h3>{{ course.title }}</h3>
                 <p>{{ course.description }}</p>
+                <p>Dificultad: {{ course.difficultyLevel }}</p>
                 <div class="progress-bar">
                   <div class="progress-fill" [style.width]="getRandomProgress() + '%'"></div>
                 </div>
