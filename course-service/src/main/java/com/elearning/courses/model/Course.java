@@ -18,12 +18,14 @@ public class Course {
      * Nivel de dificultad del curso.
      * Valores por defecto: 'Principiante'
      **/
-    private String difficulty_level;
+    @Column(name = "difficulty_level")
+    private String difficultyLevel;
 
     /**
      * Indica si un curso ha sido marcado con 'Me gusta'.
      * Valores por defecto: FALSE
      **/
+    @Column(name = "is_liked")
     private Boolean isLiked;
 
     @Column(name = "last_modified")
@@ -47,8 +49,8 @@ public class Course {
     public void setLastModified(LocalDateTime lastModified) { this.lastModified = lastModified; }
     public String getLastModifiedUser() { return lastModifiedUser; }
     public void setLastModifiedUser(String lastModifiedUser) { this.lastModifiedUser = lastModifiedUser; }
-    public String getDifficulty_level() { return difficulty_level; }
-    public void setDifficulty_level(String difficulty_level) { this.difficulty_level = difficulty_level; }
+    public String getDifficultyLevel() { return difficultyLevel; }
+    public void setDifficultyLevel(String difficulty_level) { this.difficultyLevel = difficulty_level; }
     public Boolean getIsLiked() { return isLiked; }
     public void setIsLiked(Boolean isLiked) { this.isLiked = isLiked; }
 }
