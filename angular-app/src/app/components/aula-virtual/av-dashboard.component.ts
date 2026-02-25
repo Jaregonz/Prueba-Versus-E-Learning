@@ -64,7 +64,7 @@ import { CourseService, Course } from '../../services/course.service';
           <div class="spinner"></div>
           <p>Cargando cursos...</p>
         </div>
-      }
+          }
 
       @if (!loading()) {
         <div class="course-grid">
@@ -87,6 +87,11 @@ import { CourseService, Course } from '../../services/course.service';
                 <button class="btn-access">
                   Acceder
                   <span class="material-icons-outlined">arrow_forward</span>
+                </button>
+                <button class="btn-like" (click)="toggleLike(course.id)">
+                  <span class="material-icons-outlined">
+                    {{ course.isLiked ? 'favorite' : 'favorite_border' }}
+                  </span>
                 </button>
               </div>
             </div>
@@ -306,6 +311,7 @@ export class AvDashboardComponent implements OnInit {
             next: (data) => {
                 this.courses.set(data);
                 this.loading.set(false);
+                console.log('Cursos cargados:', data);
             },
             error: () => {
                 this.loading.set(false);
@@ -323,5 +329,19 @@ export class AvDashboardComponent implements OnInit {
 
     getRandomProgress(): number {
         return Math.floor(Math.random() * 60) + 30;
+    }
+
+    toggleLike(courseId: number): void {
+        this.courseService.toggleLike(courseId).subscribe({
+            next: (updatedCourse) => {
+                const updatedCourses = this.courses().map(course =>
+                    course.id === updatedCourse.id ? { ...course, isLiked: updatedCourse.isLiked } : course
+                );
+                this.courses.set(updatedCourses);
+            },
+            error: () => {
+              console.error('Error al actualizar "Me gusta" del curso.');
+            }
+        });
     }
 }
