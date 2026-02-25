@@ -14,6 +14,12 @@ public class Course {
     private String category;
     private String status;
 
+    /**
+     * Nivel de dificultad del curso.
+     * Valores por defecto: 'Principiante'
+     **/
+    private String difficulty_level;
+
     @Column(name = "last_modified")
     private LocalDateTime lastModified;
 
@@ -35,4 +41,6 @@ public class Course {
     public void setLastModified(LocalDateTime lastModified) { this.lastModified = lastModified; }
     public String getLastModifiedUser() { return lastModifiedUser; }
     public void setLastModifiedUser(String lastModifiedUser) { this.lastModifiedUser = lastModifiedUser; }
+    public String getDifficulty_level() { return difficulty_level; }
+    public void setDifficulty_level(String difficulty_level) { this.difficulty_level = difficulty_level; }
 }
