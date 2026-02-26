@@ -71,6 +71,7 @@ Calidad del código: Código limpio, legible y nomenclatura coherente.
 
 ## 📝 Notas del Candidato (Rellena esta sección al terminar)
 1. **¿Cómo has abordado la prueba?**
+
 La prueba la he abordado dividiéndola en tres fases principales. En primer lugar, he realizado una lectura completa del código para comprender su estructura y funcionamiento antes de comenzar a desarrollar. Tras ello, he desplegado el proyecto para verlo en ejecución y entender mejor como funciona.
 
 Una vez familiarizado con el entorno, he ido resolviendo las tareas de forma ordenada, respetando la arquitectura del proyecto. He comenzado por los cambios en la base de datos, continuando con las modificaciones en el backend (implementación de endpoints y lógica de negocio) y finalizando con la adaptación del frontend.
@@ -85,4 +86,5 @@ Durante el desarrollo de la prueba tuve dificultades al trabajar con el método 
 Finalmente, tras intentar solucionarlo durante bastante tiempo sin éxito, decidí utilizar el método PUT para esa petición, ya que me permitía realizar la funcionalidad necesaria sin problemas y continuar con el desarrollo de las pruebas.
 
 3. **Si tuvieras más tiempo, ¿qué mejoras añadirías?**
+
 Si hubiera tenido más tiempo, me habría gustado pulir mejor algunas cosas que ahora mismo funcionan pero podrían estar mejor hechas. Por ejemplo, arreglaría el tema de que el progreso del curso cambie de forma aleatoria cada vez que se pulsa cualquier botón, ya que realmente no representa un progreso real y es algo que debería mantenerse estable. También implementaría un sistema de login para que cada usuario pudiera acceder con su propia cuenta y ver solo los cursos que le corresponden, gestionando bien los permisos según su rol. Además, intentaría mejorar la organización del código, tanto en el backend como en el frontend, para que fuera más limpio y fácil de mantener, por ejemplo, haría uso de DTOs en backend para servir los datos. Finalmente, mejoraría la gestión de errores para que la aplicación fuera más estable y hubiera menos riesgo de que haya un error fatal.
